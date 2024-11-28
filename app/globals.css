@@ -41,3 +41,9 @@
   --radius-md: calc(0.5rem - 2px);
   --radius-sm: calc(0.5rem - 4px);
 }
+
+@layer base {
+  * {
+    @apply border-border relative;
+  }
+}

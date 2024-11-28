@@ -1,8 +1,9 @@
+import stylesheet from '@/globals.css?url'
+
 import { ThemeProvider } from 'next-themes'
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 
 import type { Route } from './+types/root'
-import stylesheet from './globals.css?url'
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -15,7 +16,7 @@ export const links: Route.LinksFunction = () => [
 ]
 
 export const meta = ({}: Route.MetaArgs) => [
-  { title: 'New React Router App' },
+  { title: 'Yuki' },
   { name: 'description', content: 'Welcome to React Router!' },
 ]
 
