@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+
+  --color-background: light-dark(hsl(0, 0%, 100%), hsl(0, 0%, 3.9%));
+  --color-foreground: light-dark(hsl(0, 0%, 3.9%), hsl(0, 0%, 98%));
+  --color-card: light-dark(hsl(0, 0%, 100%), hsl(0, 0%, 3.9%));
+  --color-card-foreground: light-dark(hsl(0, 0%, 3.9%), hsl(0, 0%, 98%));
+  --color-popover: light-dark(hsl(0, 0%, 100%), hsl(0, 0%, 3.9%));
+  --color-popover-foreground: light-dark(hsl(0, 0%, 3.9%), hsl(0, 0%, 98%));
+  --color-primary: light-dark(hsl(0, 0%, 9%), hsl(0, 0%, 98%));
+  --color-primary-foreground: light-dark(hsl(0, 0%, 98%), hsl(0, 0%, 9%));
+  --color-secondary: light-dark(hsl(0, 0%, 96.1%), hsl(0, 0%, 14.9%));
+  --color-secondary-foreground: light-dark(hsl(0, 0%, 9%), hsl(0, 0%, 98%));
+  --color-muted: light-dark(hsl(0, 0%, 96.1%), hsl(0, 0%, 14.9%));
+  --color-muted-foreground: light-dark(hsl(0, 0%, 45.1%), hsl(0, 0%, 63.9%));
+  --color-accent: light-dark(hsl(0, 0%, 96.1%), hsl(0, 0%, 14.9%));
+  --color-accent-foreground: light-dark(hsl(0, 0%, 9%), hsl(0, 0%, 98%));
+  --color-destructive: light-dark(hsl(0, 84.2%, 60.2%), hsl(0, 62.8%, 30.6%));
+  --color-destructive-foreground: light-dark(hsl(0, 0%, 98%), hsl(0, 0%, 98%));
+  --color-border: light-dark(hsl(0, 0%, 89.8%), hsl(0, 0%, 14.9%));
+  --color-input: light-dark(hsl(0, 0%, 89.8%), hsl(0, 0%, 14.9%));
+  --color-ring: light-dark(hsl(0, 0%, 3.9%), hsl(0, 0%, 83.1%));
+  --color-chart-1: light-dark(hsl(12, 76%, 61%), hsl(220, 70%, 50%));
+  --color-chart-2: light-dark(hsl(173, 58%, 39%), hsl(160, 60%, 45%));
+  --color-chart-3: light-dark(hsl(197, 37%, 24%), hsl(30, 80%, 55%));
+  --color-chart-4: light-dark(hsl(43, 74%, 66%), hsl(280, 65%, 60%));
+  --color-chart-5: light-dark(hsl(27, 87%, 67%), hsl(340, 75%, 55%));
+  --color-sidebar-background: light-dark(hsl(0, 0%, 98%), hsl(240, 5.9%, 10%));
+  --color-sidebar-foreground: light-dark(hsl(240, 5.3%, 26.1%), hsl(240, 4.8%, 95.9%));
+  --color-sidebar-primary: light-dark(hsl(240, 5.9%, 10%), hsl(224.3, 76.3%, 48%));
+  --color-sidebar-primary-foreground: light-dark(hsl(0, 0%, 98%), hsl(0, 0%, 100%));
+  --color-sidebar-accent: light-dark(hsl(240, 4.8%, 95.9%), hsl(240, 3.7%, 15.9%));
+  --color-sidebar-accent-foreground: light-dark(hsl(240, 5.9%, 10%), hsl(240, 4.8%, 95.9%));
+  --color-sidebar-border: light-dark(hsl(220, 13%, 91%), hsl(240, 3.7%, 15.9%));
+  --color-sidebar-ring: light-dark(hsl(217.2, 91.2%, 59.8%), hsl(217.2, 91.2%, 59.8%));
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
