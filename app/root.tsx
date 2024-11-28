@@ -14,12 +14,10 @@ export const links: Route.LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
 ]
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: 'New React Router App' },
-    { name: 'description', content: 'Welcome to React Router!' },
-  ]
-}
+export const meta = ({}: Route.MetaArgs) => [
+  { title: 'New React Router App' },
+  { name: 'description', content: 'Welcome to React Router!' },
+]
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
@@ -29,8 +27,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       <Meta />
       <Links />
     </head>
+
     <body className="bg-background text-foreground font-sans antialiased">
-      {children}
+      <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+        {children}
+      </ThemeProvider>
+
       <ScrollRestoration />
       <Scripts />
     </body>
@@ -38,11 +40,9 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 )
 
 export default () => (
-  <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-    <main className="container mx-auto px-8 py-4">
-      <Outlet />
-    </main>
-  </ThemeProvider>
+  <main className="container mx-auto px-8 py-4">
+    <Outlet />
+  </main>
 )
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -60,7 +60,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center bg-neutral-950 text-neutral-50">
+    <main className="flex min-h-dvh flex-col items-center justify-center">
       <h1 className="text-4xl font-bold">{message}</h1>
       <p>{details}</p>
       {stack && (
