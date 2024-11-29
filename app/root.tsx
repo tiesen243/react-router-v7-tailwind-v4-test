@@ -40,11 +40,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   </html>
 )
 
-export default () => (
-  <main className="container mx-auto px-8 py-4">
-    <Outlet />
-  </main>
-)
+export default () => <Outlet />
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = 'Oops!'
