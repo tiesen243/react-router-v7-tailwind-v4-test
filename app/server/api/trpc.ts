@@ -7,8 +7,8 @@
  * need to use are documented accordingly near the end.
  */
 
+import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch'
 import { initTRPC } from '@trpc/server'
-import { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
 
