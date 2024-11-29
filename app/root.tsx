@@ -1,9 +1,9 @@
-import stylesheet from '@/globals.css?url'
-
 import { ThemeProvider } from 'next-themes'
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 
 import type { Route } from './+types/root'
+import stylesheet from '@/globals.css?url'
+import { TRPCProvider } from '@/lib/api'
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -31,7 +31,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
     <body className="bg-background text-foreground font-sans antialiased">
       <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-        {children}
+        <TRPCProvider>{children}</TRPCProvider>
       </ThemeProvider>
 
       <ScrollRestoration />

@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "react-router dev",
     "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "dev": "react-router dev",
     "format": "prettier --write .",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc --build --noEmit"
@@ -16,6 +17,10 @@
     "@react-router/fs-routes": "^7.0.1",
     "@react-router/node": "^7.0.1",
     "@react-router/serve": "^7.0.1",
+    "@tanstack/react-query": "^5.61.5",
+    "@trpc/client": "^11.0.0-rc.648",
+    "@trpc/react-query": "^11.0.0-rc.648",
+    "@trpc/server": "^11.0.0-rc.648",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "isbot": "^5",
@@ -23,7 +28,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^7.0.1",
-    "tailwind-merge": "^2.5.5"
+    "superjson": "^2.2.1",
+    "tailwind-merge": "^2.5.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@react-router/dev": "^7.0.1",

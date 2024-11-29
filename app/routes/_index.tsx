@@ -1,25 +1,29 @@
-import { Link } from 'react-router'
-import type { Route } from './+types/_index'
-import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+import { Form } from 'react-router'
 
-export const loader = async ({}: Route.LoaderArgs) => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
-  const data = (await res.json()) as Array<{ id: number; title: string; completed: boolean }>
-  return {
-    data,
-  }
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { api } from '@/lib/api'
+
+export default () => {
+  const { data, isLoading, refetch } = api.post.getLatestPost.useQuery()
+
+  const createPost = api.post.createPost.useMutation({ onSuccess: () => refetch() })
+
+  return (
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+      {isLoading ? 'Loading...' : (data?.title ?? 'no post')}
+
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault()
+          createPost.mutate({ title: String(new FormData(e.currentTarget).get('title')) })
+          e.currentTarget.reset()
+        }}
+      >
+        <Input name="title" />
+        {JSON.stringify(createPost.error?.data, null, 2)}
+        <Button type="submit">Post</Button>
+      </Form>
+    </div>
+  )
 }
-
-export default ({ loaderData }: Route.ComponentProps) => (
-  <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-    {loaderData.data.map((todo) => (
-      <Link key={todo.id} to={`/todo/${todo.id}`}>
-        <Card className="hover:bg-secondary h-full transition-colors">
-          <CardHeader>
-            <CardTitle>{todo.title}</CardTitle>
-          </CardHeader>
-        </Card>
-      </Link>
-    ))}
-  </div>
-)

@@ -1,4 +1,8 @@
-/** @type {import("prettier").Config} */
+/** @typedef {import("prettier").Config} PrettierConfig */
+/** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
+/** @typedef {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig */
+
+/** @type { PrettierConfig | SortImportsConfig | TailwindConfig } */
 const config = {
   /* General Prettier Config */
   semi: false,
@@ -7,7 +11,28 @@ const config = {
   singleQuote: true,
   trailingComma: 'all',
 
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
+
+  /* Tailwind Classname Sorting Config */
+  tailwindFunctions: ['cn', 'cva'],
+
+  /* Sort Imports Config */
+  importOrder: [
+    '<TYPES>',
+    '^(next/(.*)$)|^(next$)',
+    '^(react/(.*)$)|^(react$)',
+
+    '<THIRD_PARTY_MODULES>',
+    '',
+    '<TYPES>^(@/(.*)$)',
+    '<TYPES>^[.|..]',
+    '^@/',
+    '^[../]',
+    '^[./]',
+  ],
+  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
+  importOrderTypeScriptVersion: '4.4.0',
+  overrides: [{ files: '*.mdx', options: { parser: 'markdown' } }],
 }
 
 export default config
