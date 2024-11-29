@@ -15,7 +15,7 @@ export const links: Route.LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
 ]
 
-export const meta = ({}: Route.MetaArgs) => [
+export const meta = ({ }: Route.MetaArgs) => [
   { title: 'Yuki' },
   { name: 'description', content: 'Welcome to React Router!' },
 ]
